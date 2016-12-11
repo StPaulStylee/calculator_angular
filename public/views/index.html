@@ -16,9 +16,9 @@
   </head>
   <body ng-app="calculatorApp" ng-controller="CalculatorController as calc">
 
-    <form ng-submit="calc.calculate()">
+    <form>
       <div id="valueToCalculate">
-        <input type="number" step="any" ng-value="calc.valueDisplay" />
+        <input type="number" step="any" ng-value="calc.valueDisplay" ng-value="calc.solutionDisplay" />
         <button ng-click="calc.inputValue(0)">0</button>
         <button ng-click="calc.inputValue(1)">1</button>
         <button ng-click="calc.inputValue(2)">2</button>
@@ -39,7 +39,8 @@
       </div>
 
       <div id="submitValuesToCalculate">
-        <button type="submit">=</button>
+        <button ng-click="calc.calculate()">=</button>
+        <button ng-click="calc.clearCalculator()">C</button>
       </div>
     </form>
 

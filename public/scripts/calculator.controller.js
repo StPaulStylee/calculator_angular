@@ -57,4 +57,26 @@ function CalculatorController(CalculatorService) {
     console.log('Divide clicked');
     console.log(ctrl.valuesToCalculate);
   }
+
+  ctrl.calculate = function() {
+    ctrl.valuesToCalculate.valueB = parseInt(ctrl.valueDisplay);
+    console.log(ctrl.valuesToCalculate);
+    CalculatorService.calculate(ctrl.valuesToCalculate).then(function(){
+      ctrl.getSolution();
+    });
+  }
+
+  ctrl.getSolution = function() {
+    CalculatorService.getSolution().then(function(solution){
+      ctrl.valueDisplay = solution.data.solution;
+      ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
+      ctrl.operatorChosen = false;
+    })
+  }
+
+  ctrl.clearCalculator = function() {
+    ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
+    ctrl.operatorChosen = false;
+    ctrl.valueDisplay = '';
+  }
 } //End of CalculatorController
