@@ -6,8 +6,9 @@
     <!-- Angular -->
     <script src="/assets/vendor/angular.min.js"></script>
     <script src="/scripts/app.module.js"></script>
-    <!-- Stylesheet -->
+    <!-- Stylesheet and Bootstrap -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap.min.css" />
+    <link rel"stylesheet" href="/assets/vendor/bootstrap.min.css"  />
     <!-- Controller -->
     <script src="/scripts/calculator.controller.js"></script>
     <!-- Service -->
@@ -17,7 +18,7 @@
 
     <form ng-submit="calc.calculate()">
       <div id="valueToCalculate">
-        <input type="number" step="any" ng-value="calc.valueA" />
+        <input type="number" step="any" ng-value="calc.valueDisplay" />
         <button ng-click="calc.inputValue(0)">0</button>
         <button ng-click="calc.inputValue(1)">1</button>
         <button ng-click="calc.inputValue(2)">2</button>
@@ -30,6 +31,16 @@
         <button ng-click="calc.inputValue(9)">9</button>
       </div>
 
+      <div id='operators'>
+        <button ng-click="calc.add('addition')">+</button>
+        <button ng-click="calc.subtract('subtraction')">-</button>
+        <button ng-click="calc.multiply('multiplication')">x</button>
+        <button ng-click="calc.divide('division')">/</button>
+      </div>
+
+      <div id="submitValuesToCalculate">
+        <button type="submit">=</button>
+      </div>
     </form>
 
   </body>
