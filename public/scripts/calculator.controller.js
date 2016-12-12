@@ -6,25 +6,24 @@ function CalculatorController(CalculatorService) {
   console.log('GameController Loaded');
   var ctrl = this;
 
-  ctrl.operatorChosen = false;
   ctrl.valueDisplay = '';
   ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
+  ctrl.readyForNextCalculation = false;
 
   ctrl.inputValue = function(value) {
-    if (ctrl.operatorChosen = false) {
-      console.log(value);
-      ctrl.valueDisplay += value
-      console.log(ctrl.valueDisplay);
+    if (ctrl.readyForNextCalculation === true){
+      ctrl.readyForNextCalculation = false;
+      ctrl.valueDisplay = ''
+      ctrl.valueDisplay += value;
     } else {
       console.log(value);
-      ctrl.valueDisplay += value;
+      ctrl.valueDisplay += value
       console.log(ctrl.valueDisplay);
     }
   }
 
   ctrl.add = function(operator) {
-    ctrl.valuesToCalculate.valueA = parseInt(ctrl.valueDisplay);
-    ctrl.operatorChosen = true;
+    ctrl.valuesToCalculate.valueA = parseFloat(ctrl.valueDisplay);
     ctrl.valuesToCalculate.operator = operator;
     ctrl.valueDisplay = '';
     console.log('Add clicked');
@@ -32,8 +31,7 @@ function CalculatorController(CalculatorService) {
   }
 
   ctrl.subtract = function(operator) {
-    ctrl.valuesToCalculate.valueA = parseInt(ctrl.valueDisplay);
-    ctrl.operatorChosen = true;
+    ctrl.valuesToCalculate.valueA = parseFloat(ctrl.valueDisplay);
     ctrl.valuesToCalculate.operator = operator;
     ctrl.valueDisplay = '';
     console.log('subtract clicked');
@@ -41,8 +39,7 @@ function CalculatorController(CalculatorService) {
   }
 
   ctrl.multiply = function(operator) {
-    ctrl.valuesToCalculate.valueA = parseInt(ctrl.valueDisplay);
-    ctrl.operatorChosen = true;
+    ctrl.valuesToCalculate.valueA = parseFloat(ctrl.valueDisplay);
     ctrl.valuesToCalculate.operator = operator;
     ctrl.valueDisplay = '';
     console.log('multiply clicked');
@@ -50,8 +47,7 @@ function CalculatorController(CalculatorService) {
   }
 
   ctrl.divide = function(operator) {
-    ctrl.valuesToCalculate.valueA = parseInt(ctrl.valueDisplay);
-    ctrl.operatorChosen = true;
+    ctrl.valuesToCalculate.valueA = parseFloat(ctrl.valueDisplay);
     ctrl.valuesToCalculate.operator = operator;
     ctrl.valueDisplay = '';
     console.log('Divide clicked');
@@ -59,7 +55,7 @@ function CalculatorController(CalculatorService) {
   }
 
   ctrl.calculate = function() {
-    ctrl.valuesToCalculate.valueB = parseInt(ctrl.valueDisplay);
+    ctrl.valuesToCalculate.valueB = parseFloat(ctrl.valueDisplay);
     console.log(ctrl.valuesToCalculate);
     CalculatorService.calculate(ctrl.valuesToCalculate).then(function(){
       ctrl.getSolution();
@@ -70,13 +66,20 @@ function CalculatorController(CalculatorService) {
     CalculatorService.getSolution().then(function(solution){
       ctrl.valueDisplay = solution.data.solution;
       ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
-      ctrl.operatorChosen = false;
+      ctrl.readyForNextCalculation = true;
     })
   }
 
   ctrl.clearCalculator = function() {
     ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
-    ctrl.operatorChosen = false;
     ctrl.valueDisplay = '';
+  }
+
+  ctrl.deleteLastSelected = function() {
+    if (ctrl.readyForNextCalculation === true) {
+      ctrl.clearCalculator();
+    } else {
+      ctrl.valueDisplay = ctrl.valueDisplay.substr(0, ctrl.valueDisplay.length - 1);
+    }
   }
 } //End of CalculatorController
