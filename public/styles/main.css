@@ -1,0 +1,12 @@
+.valueToCalculate input {
+  background-color: rgba(140, 204, 59, 0.75);
+}
+
+button {
+  background-color: rgb(71, 66, 113);
+  border: 1px solid black;
+  border-radius: 5px;
+  color: rgb(231, 236, 232);
+  font-weight: 700;
+  margin: 5px;
+}

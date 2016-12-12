@@ -8,7 +8,7 @@
     <script src="/scripts/app.module.js"></script>
     <!-- Stylesheet and Bootstrap -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap.min.css" />
-    <link rel"stylesheet" href="/assets/vendor/bootstrap.min.css"  />
+    <link rel="stylesheet" href="/styles/main.css"  />
     <!-- Controller -->
     <script src="/scripts/calculator.controller.js"></script>
     <!-- Service -->
@@ -17,8 +17,8 @@
   <body ng-app="calculatorApp" ng-controller="CalculatorController as calc">
 
     <form class="container calculator-body">
-      <div id="valueToCalculate">
-        <div class="row display">
+
+        <div class="row valueToCalculate">
           <input class="col-md-12" type="text" ng-value="calc.valueDisplay" ng-value="calc.solutionDisplay" />
         </div>
 
@@ -28,7 +28,6 @@
               <button class="col-md-3 button" ng-click="calc.inputValue(2)">2</button>
               <button class="col-md-3 button" ng-click="calc.inputValue(3)">3</button>
             </div>
-          </div>
 
           <div class="row values">
               <button class="col-md-3" ng-click="calc.inputValue(4)">4</button>
