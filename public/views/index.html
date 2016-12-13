@@ -6,9 +6,11 @@
     <!-- Angular -->
     <script src="/assets/vendor/angular.min.js"></script>
     <script src="/scripts/app.module.js"></script>
-    <!-- Stylesheet and Bootstrap -->
+    <!-- Stylesheet, font, and Bootstrap -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="/styles/main.css"  />
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+
     <!-- Controller -->
     <script src="/scripts/calculator.controller.js"></script>
     <!-- Service -->
@@ -16,48 +18,48 @@
   </head>
   <body ng-app="calculatorApp" ng-controller="CalculatorController as calc">
 
-    <form class="container calculator-body">
+    <form class="calculator-body">
 
-        <div class="row valueToCalculate">
-          <input class="col-md-12" type="text" ng-value="calc.valueDisplay" ng-value="calc.solutionDisplay" />
+        <div class="valueToCalculate">
+          <input type="text" ng-value="calc.valueDisplay" ng-value="calc.solutionDisplay" />
         </div>
 
-          <div class="row values">
-              <button class="col-md-3 button" ng-click="calc.inputValue(0)">0</button>
-              <button class="col-md-3 button" ng-click="calc.inputValue(1)">1</button>
-              <button class="col-md-3 button" ng-click="calc.inputValue(2)">2</button>
-              <button class="col-md-3 button" ng-click="calc.inputValue(3)">3</button>
+          <div class="values">
+              <button class="button" ng-click="calc.inputValue(0)">0</button>
+              <button class="button" ng-click="calc.inputValue(1)">1</button>
+              <button class="button" ng-click="calc.inputValue(2)">2</button>
+              <button class="button" ng-click="calc.inputValue(3)">3</button>
             </div>
 
-          <div class="row values">
-              <button class="col-md-3" ng-click="calc.inputValue(4)">4</button>
-              <button class="col-md-3" ng-click="calc.inputValue(5)">5</button>
-              <button class="col-md-3" ng-click="calc.inputValue(6)">6</button>
-              <button class="col-md-3" ng-click="calc.inputValue(7)">7</button>
+          <div class="values">
+              <button class="button" ng-click="calc.inputValue(4)">4</button>
+              <button class="button" ng-click="calc.inputValue(5)">5</button>
+              <button class="button" ng-click="calc.inputValue(6)">6</button>
+              <button class="button" ng-click="calc.inputValue(7)">7</button>
             </div>
           </div>
 
-          <div class="row values">
-              <button class="col-md-3" ng-click="calc.inputValue(8)">8</button>
-              <button class="col-md-3" ng-click="calc.inputValue(9)">9</button>
-              <button class="col-md-3" ng-click="calc.inputValue('.')">.</button>
-              <button class="col-md-3" ng-click="calc.deleteLastSelected()">Del</button>
+          <div class="values">
+              <button class="button" ng-click="calc.inputValue(8)">8</button>
+              <button class="button" ng-click="calc.inputValue(9)">9</button>
+              <button class="button" ng-click="calc.inputValue('.')">.</button>
+              <button class="button" id ="deleteButton" ng-click="calc.deleteLastSelected()"><img src="/assets/images/arrows.png"  /></button>
             </div>
           </div>
 
       </div>
 
-      <div class="row" id="operators">
-          <button class="col-md-3"  ng-click="calc.add('addition')">+</button>
-          <button class="col-md-3" ng-click="calc.subtract('subtraction')">-</button>
-          <button class="col-md-3" ng-click="calc.multiply('multiplication')">x</button>
-          <button class="col-md-3" ng-click="calc.divide('division')">/</button>
+      <div id="operators">
+          <button class="button"  ng-click="calc.add('addition')">+</button>
+          <button class="button" ng-click="calc.subtract('subtraction')">-</button>
+          <button class="button" ng-click="calc.multiply('multiplication')">x</button>
+          <button class="button" ng-click="calc.divide('division')">/</button>
         </div>
       </div>
 
-      <div class="row" id="submitValuesToCalculate">
-          <button class="col-md-6" ng-click="calc.calculate()">=</button>
-          <button class="col-md-6" ng-click="calc.clearCalculator()">C</button>
+      <div id="submitValuesToCalculate">
+          <button class="bottomButton" ng-click="calc.calculate()">=</button>
+          <button class="bottomButton" ng-click="calc.clearCalculator()">C</button>
         </div>
       </div>
     </form>

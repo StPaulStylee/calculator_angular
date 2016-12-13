@@ -3,7 +3,7 @@ angular.module('calculatorApp')
 
 function CalculatorController(CalculatorService) {
 
-  console.log('GameController Loaded');
+  console.log('CalculatorController Loaded');
   var ctrl = this;
 
   ctrl.valueDisplay = '';

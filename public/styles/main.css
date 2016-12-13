@@ -1,12 +1,44 @@
+html {
+  font-size: 62.5%; /* 1em = 10px */
+}
+
+body {
+  font-family: 'Inconsolata', monospace;
+}
+
+form {
+  background-color: rgb(131, 128, 118);
+  border-radius: 5px;
+  margin: 2em auto;
+  text-align: center;;
+  width: 12em;
+}
+
 .valueToCalculate input {
   background-color: rgba(140, 204, 59, 0.75);
+  border: none;
+  margin: 1em 0;
 }
 
 button {
   background-color: rgb(71, 66, 113);
-  border: 1px solid black;
+  border: none;
   border-radius: 5px;
   color: rgb(231, 236, 232);
   font-weight: 700;
-  margin: 5px;
+  height: 2em;
+  margin: 4px;
+  width: 2em;
+}
+
+#deleteButton {
+}
+
+button img {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+#submitValuesToCalculate {
+  padding-bottom: 0.5em;
 }
