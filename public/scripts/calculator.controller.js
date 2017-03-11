@@ -4,7 +4,7 @@ angular.module('calculatorApp')
 function CalculatorController(CalculatorService) {
 
   console.log('CalculatorController Loaded');
-  var ctrl = this;
+  const ctrl = this;
 
   ctrl.valueDisplay = '';
   ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
