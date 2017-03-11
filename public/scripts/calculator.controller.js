@@ -57,18 +57,18 @@ function CalculatorController(CalculatorService) {
   ctrl.calculate = function() {
     ctrl.valuesToCalculate.valueB = parseFloat(ctrl.valueDisplay);
     console.log(ctrl.valuesToCalculate);
-    CalculatorService.calculate(ctrl.valuesToCalculate).then(function(){
+    CalculatorService.calculate(ctrl.valuesToCalculate).then( ()=> {
       ctrl.getSolution();
     });
   }
 
   ctrl.getSolution = function() {
-    CalculatorService.getSolution().then(function(solution){
+    CalculatorService.getSolution().then(solution => {
       ctrl.valueDisplay = solution.data.solution;
       ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};
       ctrl.readyForNextCalculation = true;
-    })
-  }
+    });
+  };
 
   ctrl.clearCalculator = function() {
     ctrl.valuesToCalculate = {valueA: '', valueB: '', operator: ''};

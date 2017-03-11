@@ -24,3 +24,4 @@ app.get('/', function (req, res){
 
 //Server listening on port 3300
 app.listen(3300);
+console.log('listening on port 3300');

@@ -3,21 +3,17 @@ angular.module('calculatorApp')
 
 function CalculatorService ($http) {
 
-  var service = this;
+  const service = this;
 
-  service.calculate = function(valuesToCalculate) {
+  service.calculate = (valuesToCalculate) => {
     console.log('From service: ', valuesToCalculate);
     return $http.post('/solution/' + valuesToCalculate.operator, valuesToCalculate)
-      .then(function(solution){
-        return solution;
-      });
+      .then(solution => solution);
   };
 
-  service.getSolution = function() {
+  service.getSolution = () => {
     return $http.get('/solution')
-      .then(function(response){
-        return response;
-      });
+      .then(response => response);
   };
 
 } // End of service
